@@ -18,6 +18,8 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
+import Avatar from "@mui/material/Avatar";
+import {SearchOutlined,Message,WbSunny,Widgets,Leaderboard} from "@mui/icons-material";
 
 const drawerWidth = 240;
 
@@ -86,22 +88,19 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
   }),
 );
 
-function Dr() {
+function DrawerMenu() {
     const theme = useTheme();
     const [open, setOpen] = React.useState(false);
-  
     const handleDrawerOpen = () => {
       setOpen(true);
     };
-  
     const handleDrawerClose = () => {
       setOpen(false);
     };
-  
     return (
       <Box sx={{ display: 'flex' }}>
         <CssBaseline />
-        <AppBar position="fixed" open={open}>
+        <AppBar position="fixed" open={open}  color="" sx={{ color: "gray" }}>
           <Toolbar>
             <IconButton
               color="inherit"
@@ -109,15 +108,30 @@ function Dr() {
               onClick={handleDrawerOpen}
               edge="start"
               sx={{
-                marginRight: 5,
+                mx: 2,
                 ...(open && { display: 'none' }),
               }}
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap component="div">
-              Mini variant drawer
+
+            <Typography variant="body1" component="div" sx={{ mx: 2 }}>
+              Dashboard
             </Typography>
+            <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
+              Help
+            </Typography>
+            <SearchOutlined  sx={{mx:1}}  />
+            <Leaderboard  sx={{mx:1}}  />
+            <Widgets sx={{mx:1}} />
+            <Message  sx={{mx:1}} />
+            <Widgets sx={{mx:1}} />
+            <WbSunny  sx={{mx:1}}  />
+            <Avatar
+                variant="rounded"
+                src="https://mui.com/static/images/avatar/1.jpg"
+                sx={{mx:1}}
+              />
           </Toolbar>
         </AppBar>
         <Drawer variant="permanent" open={open}>
@@ -150,34 +164,11 @@ function Dr() {
                 </ListItemButton>
               </ListItem>
             ))}
-          
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-              <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-                <ListItemButton
-                  sx={{
-                    minHeight: 48,
-                    justifyContent: open ? 'initial' : 'center',
-                    px: 2.5,
-                  }}
-                >
-                  <ListItemIcon
-                    sx={{
-                      minWidth: 0,
-                      mr: open ? 3 : 'auto',
-                      justifyContent: 'center',
-                    }}
-                  >
-                    {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                  </ListItemIcon>
-                  <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+            </List>
         </Drawer>
         
       </Box>
     );
 }
 
-export default Dr
+export default DrawerMenu

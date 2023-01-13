@@ -1,14 +1,11 @@
-import React from 'react'
-import Dr from './component/Dr'
-import NavBar from './component/NavBar'
+import React from "react";
+import DrawerMenu from "./component/DrawerMenu";
 function App() {
   return (
     <div>
-     {/* <NavBar/>
-      */}
-      <Dr/>
+      <DrawerMenu />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
