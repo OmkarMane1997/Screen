@@ -30,6 +30,8 @@ import {
 import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
+import { NavLink } from "react-router-dom";
+import Home from "../pages/Home";
 
 const drawerWidth = 250;
 
@@ -141,10 +143,10 @@ function DrawerMenu() {
           </IconButton>
 
           <Typography variant="body1" component="div" sx={{ mx: 2 }}>
-            Dashboard
+            <NavLink to={'/Dashboard'} underline="none">Dashboard</NavLink>
           </Typography>
           <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-            Help
+            <NavLink to={'/Help'} >Help</NavLink>
           </Typography>
           <SearchOutlined sx={{ mx: 1 }} />
           <Leaderboard sx={{ mx: 1 }} />
@@ -299,6 +301,7 @@ function DrawerMenu() {
           </ListItem>
         </List>
       </Drawer>
+      <Home/>
     </Box>
   );
 }
