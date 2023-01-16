@@ -1,0 +1,67 @@
+.navLink:link {
+    color: #808080;
+    text-decoration: none;
+}
+
+/* visited link */
+.navLink:visited {
+    color: #808080;
+}
+
+/* mouse over link */
+.navLink:hover {
+    color: #808080;
+}
+
+/* selected link */
+.navLink:active {
+    color: #808080;
+}
+
+.css-12i7wg6-MuiPaper-root-MuiDrawer-paper {
+    background-color: #1e1e2d !important;
+    color: #ffffff !important;
+}
+
+.iconColor {
+    background-color: #ffffff;
+    color: #808080;
+}
+.sideNavIcon{
+    color: #ffffff;
+}
+
+.lastList{
+    flex-grow: 6;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+
+.navSideLink:link {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* visited link */
+.navSideLink:visited {
+    color: #ffffff;
+}
+
+/* mouse over link */
+.navSideLink:hover {
+    color: #ffffff;
+}
+
+/* selected link */
+.navSideLink:active {
+    color: #ffffff;
+}
+
+/* 425 */
+
+@media  screen and (max-width: 576px) {
+    .icon {
+        display: none !important;
+      }
+  }

@@ -1,9 +1,11 @@
 import React from 'react'
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import { Container } from '@mui/material';
 
 function Home() {
   return (
+    <Container fixed>
     <Box component="main" sx={{ flexGrow: 1, pt: 8 }}>
         <Typography variant='h1' align='center'>Omkar </Typography>
         <Typography paragraph>
@@ -34,6 +36,7 @@ function Home() {
           posuere sollicitudin aliquam ultrices sagittis orci a.
         </Typography>
     </Box>
+    </Container>
   )
 }
 

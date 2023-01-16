@@ -31,7 +31,17 @@ import ExpandLess from "@mui/icons-material/ExpandLess";
 import ExpandMore from "@mui/icons-material/ExpandMore";
 import Collapse from "@mui/material/Collapse";
 import { NavLink } from "react-router-dom";
+
+import { Routes, Route } from "react-router-dom";
 import Home from "../pages/Home";
+import Dashboard from "../pages/Dashboard";
+import Help from "../pages/Help";
+
+//  import css from assets folder
+import "../assets/DrawerMenu.css";
+import User from "../pages/User";
+
+
 
 const drawerWidth = 250;
 
@@ -143,17 +153,21 @@ function DrawerMenu() {
           </IconButton>
 
           <Typography variant="body1" component="div" sx={{ mx: 2 }}>
-            <NavLink to={'/Dashboard'} underline="none">Dashboard</NavLink>
+            <NavLink to={"/Dashboard"} className="navLink">
+              Dashboard
+            </NavLink>
           </Typography>
           <Typography variant="body1" component="div" sx={{ flexGrow: 1 }}>
-            <NavLink to={'/Help'} >Help</NavLink>
+            <NavLink to={"/Home"} className="navLink">
+              Help
+            </NavLink>
           </Typography>
-          <SearchOutlined sx={{ mx: 1 }} />
-          <Leaderboard sx={{ mx: 1 }} />
-          <Widgets sx={{ mx: 1 }} />
-          <Message sx={{ mx: 1 }} />
-          <Widgets sx={{ mx: 1 }} />
-          <WbSunny sx={{ mx: 1 }} />
+          <SearchOutlined sx={{ mx: 1 }} className='icon' />
+          <Leaderboard sx={{ mx: 1 }}  className='icon' />
+          <Widgets sx={{ mx: 1 }} className='icon'  />
+          <Message sx={{ mx: 1 }} className='icon'  />
+          <Widgets sx={{ mx: 1 }}  className='icon' />
+          <WbSunny sx={{ mx: 1 }}  className='icon' />
           <Avatar
             variant="rounded"
             src="https://mui.com/static/images/avatar/1.jpg"
@@ -165,9 +179,9 @@ function DrawerMenu() {
         <DrawerHeader>
           <IconButton onClick={handleDrawerClose}>
             {theme.direction === "rtl" ? (
-              <ChevronRightIcon />
+              <ChevronRightIcon className="iconColor" />
             ) : (
-              <ChevronLeftIcon />
+              <ChevronLeftIcon className="iconColor" sx={{ borderRadius: 1 }} />
             )}
           </IconButton>
         </DrawerHeader>
@@ -188,7 +202,7 @@ function DrawerMenu() {
                   justifyContent: "center",
                 }}
               >
-                <Widgets />
+                <Widgets className="sideNavIcon" />
               </ListItemIcon>
               <ListItemText sx={{ opacity: open ? 1 : 0 }}>
                 Dashboard
@@ -211,7 +225,7 @@ function DrawerMenu() {
                   justifyContent: "center",
                 }}
               >
-                <AccountBalanceWallet />
+                <AccountBalanceWallet className="sideNavIcon" />
               </ListItemIcon>
               <ListItemText sx={{ opacity: open ? 1 : 0 }}>
                 Account
@@ -235,7 +249,7 @@ function DrawerMenu() {
                   justifyContent: "center",
                 }}
               >
-                <ContactMail />
+                <ContactMail className="sideNavIcon" />
               </ListItemIcon>
               <ListItemText sx={{ opacity: open ? 1 : 0 }}>
                 User Management
@@ -250,31 +264,38 @@ function DrawerMenu() {
               <List component="div" disablePadding>
                 <ListItemButton onClick={handleClickSub}>
                   <ListItemIcon>
-                  <FiberManualRecord
+                    <FiberManualRecord
                       sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
+                      className="sideNavIcon"
                     />
                   </ListItemIcon>
-                  <ListItemText  >Users</ListItemText>
-                  {openSub ? <ExpandLess sx={{ display: open ? "inline" : "none" }} /> : <ExpandMore sx={{ display: open ? "inline" : "none" }} />}
+                  <ListItemText>Users</ListItemText>
+                  {openSub ? (
+                    <ExpandLess sx={{ display: open ? "inline" : "none" }} />
+                  ) : (
+                    <ExpandMore sx={{ display: open ? "inline" : "none" }} />
+                  )}
                 </ListItemButton>
 
                 <Collapse in={openSub} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
-                    <ListItemButton sx={{ pl: 4,ml:2 }}>
+                    <ListItemButton sx={{ pl: 4, ml: 2 }}>
                       <ListItemIcon>
-                      <FiberManualRecord
-                      sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
-                    />
+                        <FiberManualRecord
+                          className="sideNavIcon"
+                          sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
+                        />
                       </ListItemIcon>
-                      <ListItemText  >User List</ListItemText>
+                      <ListItemText><NavLink to={'/User'} className='navSideLink'>User List</NavLink></ListItemText>
                     </ListItemButton>
-                    <ListItemButton sx={{ pl: 4,ml:2 }}>
+                    <ListItemButton sx={{ pl: 4, ml: 2 }}>
                       <ListItemIcon>
-                      <FiberManualRecord
-                      sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
-                    />
+                        <FiberManualRecord
+                          className="sideNavIcon"
+                          sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
+                        />
                       </ListItemIcon>
-                      <ListItemText  >View User</ListItemText>
+                      <ListItemText>View User</ListItemText>
                     </ListItemButton>
                   </List>
                 </Collapse>
@@ -282,6 +303,7 @@ function DrawerMenu() {
                 <ListItemButton sx={{ pl: 4 }}>
                   <ListItemIcon>
                     <FiberManualRecord
+                      className="sideNavIcon"
                       sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
                     />
                   </ListItemIcon>
@@ -291,6 +313,7 @@ function DrawerMenu() {
                 <ListItemButton sx={{ pl: 4 }}>
                   <ListItemIcon>
                     <FiberManualRecord
+                      className="sideNavIcon"
                       sx={{ fontSize: 10, opacity: open ? 1 : 0 }}
                     />
                   </ListItemIcon>
@@ -299,9 +322,31 @@ function DrawerMenu() {
               </List>
             </Collapse>
           </ListItem>
+         
+          <ListItem disablePadding sx={{ display: "block",  }} >
+            <ListItemButton
+              sx={{
+                minHeight: 48,
+                justifyContent: open ? "initial" : "center",
+                px: 2.5,
+                borderRadius:2,mx:3,mt:userToggle===false?42:14
+              }}
+            >
+              <ListItemText sx={{ opacity: open ? 1 : 0 }}>
+                Docs & Components
+              </ListItemText>
+            </ListItemButton>
+          </ListItem>
+
         </List>
       </Drawer>
-      <Home/>
+      {/* need to pass here causes need to adjust the screen */}
+      <Routes>
+        <Route path={"/Home"} element={<Home />} />
+        <Route path={"/Dashboard"} element={<Dashboard />} />
+        <Route path={"/Help"} element={<Help />} />
+        <Route path={"/User"} element={<User />} />
+      </Routes>
     </Box>
   );
 }
