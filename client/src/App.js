@@ -4,11 +4,15 @@ import { BrowserRouter } from "react-router-dom";
 // import Home from "./pages/Home";
 // import Dashboard from "./pages/Dashboard";
 // import Help from "./pages/Help";, Routes, Route
+import './assets/User.css';
 
 function App() {
   return (
     <BrowserRouter>
-      <DrawerMenu />
+    <section className="background">
+    <DrawerMenu />
+
+    </section>
     </BrowserRouter>
   );
 }

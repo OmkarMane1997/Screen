@@ -1,0 +1,40 @@
+.navLink:link {
+    color: #808080;
+    text-decoration: none;
+}
+
+/* visited link */
+.navLink:visited {
+    color: #808080;
+}
+
+/* mouse over link */
+.navLink:hover {
+    color: #808080;
+}
+
+/* selected link */
+.navLink:active {
+    color: #808080;
+}
+
+.left-div {
+    float: left;
+}
+
+.right-div {
+    float: right;
+}
+
+.background{
+    background-color: #f3f6f8;
+}
+
+.button_Background{
+background-color: #009ef7 !important;
+}
+.filter_button{
+    background-color: white !important;
+    color: black !important;
+    border: 0 !important;
+}
