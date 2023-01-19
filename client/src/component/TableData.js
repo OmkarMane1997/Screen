@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import MUIDataTable from "mui-datatables";
 import SearchIcon from "@mui/icons-material/YoutubeSearchedFor";
 import PrintIcon from "@mui/icons-material/Receipt";
@@ -6,15 +6,30 @@ import DownloadIcon from "@mui/icons-material/GetApp";
 import ViewColumnIcon from "@mui/icons-material/DynamicFeed";
 import FilterIcon from "@mui/icons-material/FilterAlt";
 import { Button } from "@mui/material";
-import AddIcon from '@mui/icons-material/Add';
+import AddIcon from "@mui/icons-material/Add";
 import "../assets/Table.css";
-
+import axios from 'axios';  
 function TableData() {
+  const [getData, setGetData] = useState();
+
+  const TableData= async ()=>{
+    try {
+      const userData = await axios.get(`http://localhost:4000/api/v1/Read`);
+        console.log(userData.data.result);
+        setGetData(userData.data.result);
+      } catch (err) {
+        console.log(err);
+      }
+  }
+  useEffect(() => {
+    TableData();
+  }, []);
+
   const columns = [
     {
       name: "name",
       label: "Name",
-     
+
       options: {
         filter: true,
         sort: true,
@@ -22,7 +37,7 @@ function TableData() {
           const firstName = tableMeta.rowData[0];
           const lastName = tableMeta.rowData[3];
           return `${firstName} ${lastName}`;
-      }
+        },
       },
     },
     {
@@ -56,9 +71,9 @@ function TableData() {
         filter: false,
         sort: false,
         customBodyRender: (value, tableMeta, updateValue) => {
-          const firstName = 'Action';
+          const firstName = "Action";
           return `${firstName}`;
-      }
+        },
       },
     },
   ];
@@ -105,7 +120,10 @@ function TableData() {
 
   const HeaderElements = () => (
     <>
-      <Button className="button_Background"><AddIcon />Add User</Button>
+      <Button className="button_Background">
+        <AddIcon />
+        Add User
+      </Button>
     </>
   );
 
@@ -127,7 +145,7 @@ function TableData() {
       viewColumns: "View Columns",
       filterTable: "Filter Table",
     },
-    responsive: 'standard',
+    responsive: "standard",
   };
   return (
     <>
