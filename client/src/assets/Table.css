@@ -1,0 +1,32 @@
+.button_Background {
+    background-color: #009ef7 !important;
+    color: white !important;
+}
+
+.nine {
+    background-color: #ffffff;
+    color: #808080;
+    writing-mode: vertical-rl; 
+    width: 30px !important;
+    padding: 0%;
+    margin: 0%;
+    position: fixed;
+    top: 50%;
+    right: 0%;
+    border-radius: 5px;
+    transition: 1s;
+}
+
+.ten {
+    background-color: #ffffff;
+    color: #808080;
+    writing-mode: vertical-rl; 
+    width: 30px !important;
+    padding: 0%;
+    margin: 1px;
+    position: fixed;
+    top: 64%;
+    right: 0%;
+    border-radius: 5px;
+    transition: 1s;
+}
