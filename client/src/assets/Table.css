@@ -6,7 +6,7 @@
 .nine {
     background-color: #ffffff;
     color: #808080;
-    writing-mode: vertical-rl; 
+    writing-mode: vertical-rl;
     width: 30px !important;
     padding: 0%;
     margin: 0%;
@@ -20,7 +20,7 @@
 .ten {
     background-color: #ffffff;
     color: #808080;
-    writing-mode: vertical-rl; 
+    writing-mode: vertical-rl;
     width: 30px !important;
     padding: 0%;
     margin: 1px;
@@ -29,4 +29,44 @@
     right: 0%;
     border-radius: 5px;
     transition: 1s;
+}
+
+
+.action {
+    background-color: #f5f8fa !important;
+    color: black !important;
+}
+
+.two_Enable {
+    background-color: #e8fff3;
+    color: #278855;
+    width: 70px;
+    border-radius: 10px;
+}
+
+.lastLogin {
+    background-color: #dfdfdf;
+    color: black;
+    padding: 1px;
+    width: 100px;
+    border-radius: 5px;
+}
+
+/* download and filter css */
+[data-testid="DownloadCSV-iconButton"], [data-testid="Filter Table-iconButton"] {
+    border-radius: 0px !important;
+    background-color: #f1faff !important;
+    color: #009ef7 !important;
+    margin: 5px !important;
+}
+/*  */
+[data-testid="ClearIcon1"],[data-testid="Search-iconButton"],[data-testid="SearchIcon"],[style="visibility: visible;"],[aria-label="Delete Selected Rows"]{
+    display: none !important;
+}
+
+/*  */
+[id=":r1:"]{
+    border-radius: 10px !important;
+    background-color: #f5f8fa !important;
+
 }

@@ -5,7 +5,7 @@ import PrintIcon from "@mui/icons-material/Receipt";
 import DownloadIcon from "@mui/icons-material/GetApp";
 import ViewColumnIcon from "@mui/icons-material/DynamicFeed";
 import FilterIcon from "@mui/icons-material/FilterAlt";
-import { Button } from "@mui/material";
+import { Avatar, Button ,Stack,Typography} from "@mui/material";
 import AddIcon from "@mui/icons-material/Add";
 import "../assets/Table.css";
 import axios from 'axios';  
@@ -25,88 +25,110 @@ function TableData() {
     TableData();
   }, []);
 
+  
+
+
   const columns = [
     {
       name: "name",
       label: "Name",
-
       options: {
         filter: true,
         sort: true,
         customBodyRender: (value, tableMeta, updateValue) => {
-          const firstName = tableMeta.rowData[0];
-          const lastName = tableMeta.rowData[3];
-          return `${firstName} ${lastName}`;
+        console.log(tableMeta.rowData);
+          const Name = tableMeta.rowData[0];
+          const avatar = tableMeta.rowData[4];
+          const email = tableMeta.rowData[5];
+          return <>
+          <Stack direction='row'  spacing={1}>
+          <Avatar alt={Name} src={avatar} />
+          <Stack  direction='column'  spacing={1}>
+          <Typography variant="body2" align="center">{Name}</Typography>
+          <Typography variant="body2" align="center">{email}</Typography>
+          </Stack>
+         
+          </Stack>
+         
+         
+          </>;
         },
       },
     },
     {
-      name: "company",
-      label: "Company",
+      name: "role",
+      label: "ROLE",
       options: {
         filter: true,
-        sort: false,
+        sort: true,
       },
     },
     {
-      name: "city",
-      label: "City",
+      name: "lastLogin",
+      label: "LAST LOGIN",
       options: {
-        filter: true,
+        filter: false,
         sort: false,
+        customBodyRender:(value, tableMeta, updateValue)=>{
+          const lastLogin =tableMeta.rowData[2];
+          return <Typography variant="body2" align="center" className="lastLogin" >{lastLogin}</Typography>
+        }
       },
     },
     {
-      name: "state",
-      label: "State",
+      name: "twoStep",
+      label: "TWO-STEP",
       options: {
-        filter: true,
+        filter: false,
+        sort: false,
+        customBodyRender:(value, tableMeta, updateValue)=>{
+          const twoStep = tableMeta.rowData[3];
+          return twoStep===1? <Typography variant="body2" align="center" className="two_Enable" >Enabled</Typography>:''
+
+        }
+      },
+    },
+    {
+      name: "avatar",
+      label: "",
+      options: {
+        filter: false,
+        sort: false,
+       display:false
+      },
+    },
+    {
+      name: "email",
+      label: "",
+      options: {
+        filter: false,
+        sort: false,
+       display:false
+      },
+    },
+    {
+      name: "created_date",
+      label: "JOINED DATE",
+      options: {
+        filter: false,
         sort: false,
       },
     },
     {
       name: "action",
-      label: "Action",
+      label: "ACTION",
       options: {
         filter: false,
         sort: false,
         customBodyRender: (value, tableMeta, updateValue) => {
-          const firstName = "Action";
-          return `${firstName}`;
+         
+          return <Button variant="text"  className='action' size="small">Action</Button>
         },
       },
     },
+    
   ];
 
-  const data = [
-    { name: "Joe James", company: "Test Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    {
-      name: "James Houston",
-      company: "Test Corp",
-      city: "Dallas",
-      state: "TX",
-    },
-    { name: "Joe James", company: "Test Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    {
-      name: "James Houston",
-      company: "Test Corp",
-      city: "Dallas",
-      state: "TX",
-    },
-    { name: "Joe James", company: "Test Corp", city: "Yonkers", state: "NY" },
-    { name: "John Walsh", company: "Test Corp", city: "Hartford", state: "CT" },
-    { name: "Bob Herm", company: "Test Corp", city: "Tampa", state: "FL" },
-    {
-      name: "Omkar Houston",
-      company: "Test Corp",
-      city: "Dallas",
-      state: "TX",
-    },
-  ];
 
   const components = {
     icons: {
@@ -150,7 +172,7 @@ function TableData() {
   return (
     <>
       <MUIDataTable
-        data={data}
+        data={getData}
         columns={columns}
         options={options}
         components={components}
