@@ -12,8 +12,8 @@ import RightBar from "../component/RightBar";
 
 function User() {
   return (
-    <>
-      <Container fixed sx={{ mt: 9 }}>
+    < >
+      <Container  sx={{ mt: 9 }}>
         <Box>
           <Grid container spacing={2}>
             <Grid item lg={9} md={6} sm={6} xs={12}>
@@ -59,7 +59,7 @@ function User() {
           <TableData />
         </Box>
         <RightBar />
-        <Footer />
+      <Footer sx={{mt:2}}/>
       </Container>
     </>
   );

@@ -171,12 +171,15 @@ function TableData() {
   };
   return (
     <>
-      <MUIDataTable
+    <div style={{display: 'table', tableLayout:'fixed', width:'100%'}}>
+    <MUIDataTable
         data={getData}
         columns={columns}
         options={options}
         components={components}
       />
+    </div>
+      
     </>
   );
 }
