@@ -40,6 +40,7 @@ import Help from "../pages/Help";
 //  import css from assets folder
 import "../assets/DrawerMenu.css";
 import User from "../pages/User";
+import CreateUser from "../pages/CreateUser";
 
 
 
@@ -346,6 +347,7 @@ function DrawerMenu() {
         <Route path={"/Dashboard"} element={<Dashboard />} />
         <Route path={"/Help"} element={<Help />} />
         <Route path={"/User"} element={<User />} />
+        <Route path={"/CreateUser"} element={<CreateUser />} />
       </Routes>
     </Box>
   );

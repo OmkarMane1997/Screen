@@ -26,19 +26,24 @@
     float: right;
 }
 
-.background{
+.background {
     background-color: #f3f6f8;
 }
 
-.button_Background{
-background-color: #009ef7 !important;
+.button_Background {
+    background-color: #009ef7 !important;
 }
-.filter_button{
+
+.filter_button {
     background-color: white !important;
     color: black !important;
     border: 0 !important;
 }
 
-.footer_text{
-        color: #808080;
+.footer_text {
+    color: #808080;
+}
+
+.ButtonLink {
+    text-decoration: none;
 }

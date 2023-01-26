@@ -12,8 +12,8 @@ import RightBar from "../component/RightBar";
 
 function User() {
   return (
-    < >
-      <Container  sx={{ mt: 9 }}>
+    <>
+      <Container sx={{ mt: 9 }}>
         <Box>
           <Grid container spacing={2}>
             <Grid item lg={9} md={6} sm={6} xs={12}>
@@ -43,13 +43,15 @@ function User() {
                   >
                     Delete
                   </Button>
-                  <Button
-                    variant="contained"
-                    sx={{ m: 1 }}
-                    className="button_Background"
-                  >
-                    Create
-                  </Button>
+                  <NavLink to={"/CreateUser"} className='ButtonLink'>
+                    <Button
+                      variant="contained"
+                      sx={{ m: 1 }}
+                      className="button_Background"
+                    >
+                      Create
+                    </Button>
+                  </NavLink>
                 </Stack>
               </Box>
             </Grid>
@@ -59,7 +61,7 @@ function User() {
           <TableData />
         </Box>
         <RightBar />
-      <Footer sx={{mt:2}}/>
+        <Footer sx={{ mt: 2 }} />
       </Container>
     </>
   );
